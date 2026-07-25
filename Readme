@@ -1,0 +1,142 @@
+# Detección de Anomalías en Video (UCF-Crime, 3 clases)
+
+Sistema de clasificación de video que detecta anomalías en escenas de vigilancia, agrupando las categorías originales de **UCF-Crime** en 3 clases:
+
+| Clase          | Categorías originales de UCF-Crime incluidas                              |
+|----------------|------------------------------------------------------------------------------|
+| `NormalVideos` | NormalVideos                                                                  |
+| `Fighting`     | Assault, Abuse, Fighting                                                      |
+| `Vandalism`    | Robbery, Arson, Burglary, Explosion, Shoplifting, Stealing, Vandalism         |
+
+## Arquitectura
+
+El modelo (`AnomalyDetector3Class` en `train.py`) es una red de dos flujos (*two-stream*) con atención temporal:
+
+- **Spatial Stream**: backbone `convnext_small` (pre-entrenado, vía `timm`) sobre los frames RGB.
+- **Motion Stream**: backbone `convnext_tiny` sobre el frame-diferencia (motion/absdiff entre frames consecutivos).
+- **Temporal Transformer**: un `TransformerEncoder` (4 capas, 8 cabezas) con *positional embeddings* que combina la información temporal de los 16 segmentos muestreados por video.
+- **Attention Pooling**: en vez de promediar los frames, una capa de atención aprende dinámicamente qué frames son más relevantes para la clasificación.
+- **Clasificador**: MLP final (`Linear → ReLU → Dropout → Linear`) sobre 3 clases.
+
+Se usa **Differential Learning Rate**: el backbone se entrena con `lr=1e-5` y la cabeza (Transformer + Atención + Clasificador) con `lr=1e-3`. Además, el backbone permanece congelado durante las primeras 3 épocas (*warmup*) y luego se descongela para *fine-tuning* de extremo a extremo.
+
+## Estructura del repositorio
+
+```
+├── filter_dataset_3class.py   # Filtra y reorganiza UCF-Crime original → 3 clases
+├── train.py                   # Dataset, modelo y loop de entrenamiento/evaluación
+├── eval_final.py               # Evaluación final: matriz de confusión, ROC, AUC
+├── .gitignore
+└── README.md
+```
+
+Carpetas generadas localmente (no incluidas en el repo, ver `.gitignore`):
+
+- `ucf_crime/` — dataset original de UCF-Crime (frames extraídos).
+- `ucf_crime_3class/` — subconjunto filtrado y balanceado (splits + metadata).
+- `checkpoints_3class/` — checkpoints del modelo (`best_model.pth`, `last_model.pth`).
+- `eval_outputs/` — gráficos generados por la evaluación final (matriz de confusión, curvas ROC).
+
+## Requisitos
+
+- Python 3.10+
+- GPU con CUDA (recomendado, probado en RTX 3060 12GB con `fp16`). También funciona en CPU, pero mucho más lento.
+
+### Instalación de dependencias
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
+
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+pip install timm einops opencv-python numpy scikit-learn matplotlib tqdm
+```
+
+> Ajusta la URL del índice de PyTorch según tu versión de CUDA (ver [pytorch.org](https://pytorch.org/get-started/locally/)).
+
+## Dataset
+
+Este proyecto usa **UCF-Crime**, disponible públicamente en:
+🔗 https://www.crcv.ucf.edu/projects/real-world/
+
+Se espera que el dataset ya esté preprocesado como **frames extraídos** (`.jpg`/`.png`), con la siguiente estructura antes de correr el filtrado:
+
+```
+ucf_crime/
+├── Train/
+│   ├── Abuse/          (frames: Abuse028_x264_10.jpg, _20.jpg, ...)
+│   ├── Assault/
+│   ├── Burglary/
+│   ├── Explosion/
+│   ├── Fighting/
+│   ├── NormalVideos/
+│   ├── Robbery/
+│   ├── Shoplifting/
+│   ├── Stealing/
+│   └── Vandalism/
+└── Test/
+    └── (mismas carpetas)
+```
+
+Si no cuentas con los frames ya extraídos, puedes generarlos desde los videos originales con `ffmpeg` u `opencv` (extracción de 1 frame cada N).
+
+## Cómo reproducir los resultados
+
+### 1. Filtrar y balancear el dataset (3 clases)
+
+```bash
+# Modo dry-run: solo muestra estadísticas, no escribe nada
+python filter_dataset_3class.py --dry-run
+
+# Genera ucf_crime_3class/ con los splits train/test y metadata.json
+python filter_dataset_3class.py
+```
+
+Este script:
+- Agrupa los frames por video.
+- Descarta videos muy cortos (<8 frames) o muy oscuros (brillo promedio < 30).
+- Mapea las 10 categorías originales a las 3 clases finales.
+- Limita el número de videos por clase (`MAX_PER_CLASS`) para balancear el dataset.
+- Respeta el split original Train/Test de UCF-Crime.
+- Guarda `train_split.txt`, `test_split.txt` y `metadata.json` en `ucf_crime_3class/Annotations/`.
+
+### 2. Entrenar el modelo
+
+```bash
+python train.py --mode train
+```
+
+- 50 épocas por defecto, con warmup de 3 épocas (backbone congelado).
+- Evalúa en el set de test cada 5 épocas y guarda:
+  - `checkpoints_3class/last_model.pth` (último estado)
+  - `checkpoints_3class/best_model.pth` (mejor AUC macro obtenido)
+- La configuración completa (hiperparámetros, rutas, tamaño de batch, etc.) está centralizada en el diccionario `CFG` al inicio de `train.py`.
+
+### 3. Evaluar un checkpoint puntual (rápido)
+
+```bash
+python train.py --mode eval --checkpoint checkpoints_3class/best_model.pth
+```
+
+Imprime accuracy, classification report y AUC macro (OvR) en consola.
+
+### 4. Evaluación final completa (matriz de confusión + ROC)
+
+```bash
+python eval_final.py --checkpoint checkpoints_3class/best_model.pth
+```
+
+Genera en `eval_outputs/`:
+- `confusion_matrix.png` — matriz de confusión (conteos absolutos y normalizada).
+- `roc_curves.png` — curvas ROC por clase (One-vs-Rest) con AUC.
+
+También imprime en consola el classification report completo y el AUC por clase.
+
+## Notas
+
+- Los checkpoints y datasets **no se incluyen** en este repositorio por su tamaño; pueden regenerarse siguiendo los pasos anteriores o descargando UCF-Crime desde el enlace oficial.
+- El `WeightedRandomSampler` compensa el desbalance de clases durante el entrenamiento (basado en `class_weights` calculados en el filtrado).
+- El uso de `fp16` (mixed precision) es configurable vía `CFG["use_fp16"]` en `train.py`.
