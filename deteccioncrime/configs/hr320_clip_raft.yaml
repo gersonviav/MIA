@@ -1,0 +1,117 @@
+# Ablación sobre 320×240 — apariencia: vit_base_patch16_clip_224.openai | movimiento: raft
+# ─────────────────────────────────────────────────────────────────────────────
+# Configuración central del proyecto (única fuente de verdad).
+# Todas las rutas son relativas a la raíz del repositorio.
+# ─────────────────────────────────────────────────────────────────────────────
+
+paths:
+  raw_dir: data/raw/ucf_crime_320                 # frames originales: Train/<Categoria>/*.jpg|png
+  temporal_annotations: data/raw/Temporal_Anomaly_Annotation_for_Testing_Videos.txt  # opcional
+  manifests_dir: data/manifests_320               # versionado del dataset (hashes)
+  processed_dir: data/processed/ucf_crime_3class_320
+  checkpoints_dir: artifacts/checkpoints_320_clip_raft
+  reports_dir: artifacts/reports_320_clip_raft
+  logs_dir: logs
+  dataset_doc: docs/DATASET.md                # se actualiza su bloque AUTOGEN en `vad ingest`
+
+dataset:
+  name: UCF-Crime (videos originales → frames 320×240)
+  source_url: https://www.crcv.ucf.edu/projects/real-world/
+  download_date: null        # ← COMPLETAR (YYYY-MM-DD) o pasar --download-date en `vad ingest`
+  fps: 30                    # fps de los videos originales (para convertir frame → segundos)
+  img_exts: [".jpg", ".jpeg", ".png"]
+
+videos:                      # paso 0 opcional: `vad frames` (videos originales → frames)
+  dir: data/raw/ucf_crime_videos           # .mp4 originales (cualquier estructura de carpetas)
+  train_list: data/raw/Anomaly_Train.txt   # listas oficiales del split (vienen con el dataset)
+  test_list: data/raw/Anomaly_Test.txt
+  out_dir: data/raw/ucf_crime_320          # frames a resolución original
+  every_n: 10                # 1 de cada 10 frames (~3 fps), igual que la versión 64×64
+  max_side: 320              # lado máximo en px (0 = sin redimensionar)
+  jpeg_quality: 95
+  workers: 4                 # procesos en paralelo (1 video por proceso)
+
+ingest:
+  hash_workers: 8            # hilos para calcular SHA-256
+  resolution_sample: 200     # nº de imágenes muestreadas para medir resolución
+
+preprocess:
+  seed: 42
+  min_frames: 8
+  min_brightness: 30
+  brightness_sample_frames: 5
+  val_ratio: 0.2             # validación sale SOLO de Train; Test queda ciego
+  max_per_class_train:       # tope aplicado solo a Train (antes de separar val)
+    NormalVideos: 200
+    Fighting: 150
+    Vandalism: 150
+  class_to_idx:
+    NormalVideos: 0
+    Fighting: 1
+    Vandalism: 2
+  class_mapping:             # macro-clase ← categorías originales UCF-Crime
+    NormalVideos: [NormalVideos]
+    Fighting: [Assault, Abuse, Fighting]
+    Vandalism: [Robbery, Arson, Burglary, Explosion, Shoplifting, Stealing, Vandalism]
+
+features:                    # etapa 1: extracción UNA vez con backbones congelados
+  dir: data/processed/features/clipb16_t_raft_320
+  spatial_backbone: vit_base_patch16_clip_224.openai   # stream RGB
+  motion_backbone: convnext_tiny     # backbone que lee la imagen de movimiento
+  motion_input: raft                 # diff = |frame_t − frame_t−1| · raft = flujo óptico RAFT
+  raft_model: raft_large             # raft_large | raft_small (solo si motion_input: raft)
+  raft_batch: 32                     # pares de frames por lote en RAFT
+  flow_max_px: 20                    # desplazamiento (px) que satura la imagen de flujo
+  pretrained: true
+  img_size: 224
+  batch_frames: 128          # frames por lote en GPU (16 GB VRAM: 128 va holgado)
+  chunk_frames: 256          # frames que se leen del disco por bloque
+  read_workers: 8            # hilos leyendo imágenes en paralelo
+  prefetch_chunks: 4         # bloques leídos por adelantado mientras la GPU trabaja
+
+snippet:
+  frames_per_snippet: 3      # 3 frames extraídos (cada 10 frames originales) ≈ 1 s → resolución temporal
+
+mil:
+  num_segments: 32           # ENTRENAMIENTO (Transformer/clasificación): 32 segmentos por video
+  scorer_segments: 128       # ENTRENAMIENTO (scorer): 128 segmentos ≈ 1–2 s c/u, cerca del snippet de inferencia
+  window: 32                 # INFERENCIA: ventana de 32 snippets consecutivos
+  stride: 16                 # la ventana avanza 16 snippets (mitad) → cada snippet se ve ≥ 2 veces
+
+model:                       # cabeza v5 (Transformer + attention pooling) sobre features
+  d_model: 512
+  nhead: 8
+  num_layers: 2
+  dropout: 0.3
+  attn_temp: 0.5             # τ<1 agudiza la atención (v5)
+  topk: 0                    # top-k pooling (v5); 0 = off
+  score_head: local          # local = scorer por snippet independiente del Transformer (localiza)
+                             # transformer = score 1-P(Normal) del Transformer (v0.4, no localizaba)
+  scorer_hidden: 256
+  scorer_kernel: 3           # vecinos que mira el scorer (3 = snippet ± 1 ≈ 3 s)
+
+train:
+  epochs: 40
+  batch_size: 32             # mitad normales, mitad anómalos (necesario para el ranking MIL)
+  lr: 3.0e-4
+  weight_decay: 1.0e-2
+  patience: 8                # early stopping sobre macro-F1 de validación
+  seed: 42
+  num_workers: 0
+  lambda_ent: 0.3            # v5: entropía de atención (solo anómalos)
+  lambda_seg: 0.5            # v5: el segmento top debe votar la clase del video
+  lambda_smooth: 0.1         # v5: suavidad de la atención
+  lambda_rank: 1.0           # Sultani: top-k score anómalo > top-k score normal + margen
+  rank_margin: 1.0
+  rank_topk: 3               # k fijo (se usa solo si rank_topk_ratio = 0)
+  rank_topk_ratio: 0.1       # k = 10 % de los segmentos del scorer (≈13 de 128) → eventos que duran, no picos
+  lambda_normal: 1.0         # todos los snippets de videos normales → score 0
+  lambda_topk: 1.0           # top-k snippets de videos anómalos → score 1
+  lambda_sparsity: 0.1       # pocos snippets anómalos (0.3 dejaba solo picos aislados)
+  lambda_score_smooth: 0.1   # Sultani: score suave en el tiempo
+
+localize:
+  threshold: 0.5             # score ≥ umbral → snippet anómalo
+  min_duration_s: 1.0        # descarta intervalos más cortos
+  smooth_snippets: 5         # media móvil del score (≈5 s) antes de umbralizar y del AUC frame; 1 = off
+  merge_gap_s: 3.0           # une intervalos separados por ≤ 3 s

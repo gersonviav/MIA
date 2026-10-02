@@ -1,0 +1,68 @@
+{
+  "processed_dataset_sha256": "bd6157673f0d0e8c196d7a19a18e370fcd1604d9f8a84ad7f930709add97a5b8",
+  "split_files_sha256": {
+    "train": "d2654c922b709df9db4337eab15deb454116ffeb3b6cf1f4c45ca7b1a1d7d810",
+    "val": "5c4ec8e5415d6477f28c137189118f2492f64aa5e5c575fcac0f5a64ae4f66b1",
+    "test": "d66127ec51047e5246a680921a01c439b92e4051059922949c316912c25236d8"
+  },
+  "raw_dataset_sha256": "b5624813ff432dbb39fb6c7050aab133e07f564af938239a1d44a39c1a4e7b0d",
+  "created_at": "2026-10-01T20:33:25+00:00",
+  "n_videos": {
+    "train": 390,
+    "val": 98,
+    "test": 237
+  },
+  "counts": {
+    "train": {
+      "Fighting": 110,
+      "NormalVideos": 160,
+      "Vandalism": 120
+    },
+    "val": {
+      "Fighting": 28,
+      "NormalVideos": 40,
+      "Vandalism": 30
+    },
+    "test": {
+      "Fighting": 10,
+      "NormalVideos": 150,
+      "Vandalism": 77
+    }
+  },
+  "preprocess_config": {
+    "seed": 42,
+    "min_frames": 8,
+    "min_brightness": 30,
+    "brightness_sample_frames": 5,
+    "val_ratio": 0.2,
+    "max_per_class_train": {
+      "NormalVideos": 200,
+      "Fighting": 150,
+      "Vandalism": 150
+    },
+    "class_to_idx": {
+      "NormalVideos": 0,
+      "Fighting": 1,
+      "Vandalism": 2
+    },
+    "class_mapping": {
+      "NormalVideos": [
+        "NormalVideos"
+      ],
+      "Fighting": [
+        "Assault",
+        "Abuse",
+        "Fighting"
+      ],
+      "Vandalism": [
+        "Robbery",
+        "Arson",
+        "Burglary",
+        "Explosion",
+        "Shoplifting",
+        "Stealing",
+        "Vandalism"
+      ]
+    }
+  }
+}

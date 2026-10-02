@@ -1,0 +1,179 @@
+{
+  "dataset": "UCF-Crime (videos originales → frames 320×240)",
+  "source_url": "https://www.crcv.ucf.edu/projects/real-world/",
+  "download_date": "2026-10-01",
+  "ingested_at": "2026-10-01T20:32:32+00:00",
+  "raw_dir": "data/raw/ucf_crime_320",
+  "hash_mode": "sha256 por archivo",
+  "dataset_sha256": "b5624813ff432dbb39fb6c7050aab133e07f564af938239a1d44a39c1a4e7b0d",
+  "totals": {
+    "videos": 1650,
+    "frames": 1306972,
+    "bytes": 42938383931,
+    "bytes_human": "40.0 GB"
+  },
+  "per_split": {
+    "Test": {
+      "videos": 239,
+      "frames": 97650,
+      "bytes": 3124799692
+    },
+    "Train": {
+      "videos": 1411,
+      "frames": 1209322,
+      "bytes": 39813584239
+    }
+  },
+  "per_category": {
+    "Test/Abuse": {
+      "videos": 2,
+      "frames": 297,
+      "bytes": 9388121,
+      "sha256": "1edc01badf40b0da42edc51390153079c9978d0701aac7e019c75d97ef73f399"
+    },
+    "Test/Arson": {
+      "videos": 9,
+      "frames": 2793,
+      "bytes": 60028072,
+      "sha256": "87f13765558c17a66e8ae7b37dd6624b12aee42e3e25c47feb8d349bb2167036"
+    },
+    "Test/Assault": {
+      "videos": 3,
+      "frames": 2657,
+      "bytes": 63921150,
+      "sha256": "dd93ea7e392378a829720f79cde2e7507b63294989703605f106c1534fdd36ba"
+    },
+    "Test/Burglary": {
+      "videos": 13,
+      "frames": 7657,
+      "bytes": 195040728,
+      "sha256": "390634057b6fe4756c21ad6329ccce82c6ae1d267579fb6f636e8e9e39fbca6d"
+    },
+    "Test/Explosion": {
+      "videos": 21,
+      "frames": 6510,
+      "bytes": 150302728,
+      "sha256": "93bf2c4b936778a5e47337efdb75b00f70c8d4a3b0ce8c84a871688b9b865ab5"
+    },
+    "Test/Fighting": {
+      "videos": 5,
+      "frames": 1231,
+      "bytes": 35377284,
+      "sha256": "b39044e53d32a4b37cc9a5aa4466fe5580df4b320814aeb430dd53344f7e239a"
+    },
+    "Test/NormalVideos": {
+      "videos": 150,
+      "frames": 64952,
+      "bytes": 2193064136,
+      "sha256": "706dc0ab8ea87f0032b8a0908241c71aafb72abcd1030f4b55d956c5c3eca665"
+    },
+    "Test/Robbery": {
+      "videos": 5,
+      "frames": 835,
+      "bytes": 25707703,
+      "sha256": "a1e7e63260fdeedd693a51da0d676f5a93dae70e9adb8a3e7f59304313d367b6"
+    },
+    "Test/Shoplifting": {
+      "videos": 21,
+      "frames": 7623,
+      "bytes": 302239773,
+      "sha256": "d9fefbd30a31ec364fb00b3df55cb341a76176340d6c1cc0050b83a90300492b"
+    },
+    "Test/Stealing": {
+      "videos": 5,
+      "frames": 1984,
+      "bytes": 60413034,
+      "sha256": "c4d6451eb86d0fb4fd9d525b38c175c6bf4af813245840d0433cfe17a2bda519"
+    },
+    "Test/Vandalism": {
+      "videos": 5,
+      "frames": 1111,
+      "bytes": 29316963,
+      "sha256": "9a70abd88647f1d89e13e944faaf46e254e401be3f7a8523624eb97bf8e2ab3f"
+    },
+    "Train/Abuse": {
+      "videos": 48,
+      "frames": 19076,
+      "bytes": 460294527,
+      "sha256": "e523b6cd3a65c4d998d74b81d87ab3ac228791be41b85498024d850084ef587e"
+    },
+    "Train/Arson": {
+      "videos": 41,
+      "frames": 24421,
+      "bytes": 624942350,
+      "sha256": "9944acce0d72a320f24fc590af152b565ff3bb0e5d238d530c5340c044ff94f8"
+    },
+    "Train/Assault": {
+      "videos": 47,
+      "frames": 10360,
+      "bytes": 281223436,
+      "sha256": "3dd221a26f6a04d7cfd740c395872530b354cc9de6dd865b618e897e3acd7fef"
+    },
+    "Train/Burglary": {
+      "videos": 87,
+      "frames": 39504,
+      "bytes": 1135923256,
+      "sha256": "9ea7a3de52ae906e259b9775a2380ce6966574acffd7133102b1644c9e5661ad"
+    },
+    "Train/Explosion": {
+      "videos": 29,
+      "frames": 18753,
+      "bytes": 516699940,
+      "sha256": "c2d00304dd90d01fb0338477e631a05affe98a118d85027097e94afeeff295b5"
+    },
+    "Train/Fighting": {
+      "videos": 45,
+      "frames": 24684,
+      "bytes": 742274475,
+      "sha256": "83a66b7271cb84fbe38b9661f671ad36a1bed84758f21bda75e562e8893a304e"
+    },
+    "Train/NormalVideos": {
+      "videos": 800,
+      "frames": 947768,
+      "bytes": 32248041927,
+      "sha256": "0e7a5e1bb9e4400b04cb44503498cdff60b60cff1b109d5f16d77db8d8fcbedc"
+    },
+    "Train/Robbery": {
+      "videos": 145,
+      "frames": 41493,
+      "bytes": 1353009807,
+      "sha256": "b06cf54fc2bb63258809ee1fd88a7288a2ac758d55901f901e00f3899280af91"
+    },
+    "Train/Shoplifting": {
+      "videos": 29,
+      "frames": 24835,
+      "bytes": 898293390,
+      "sha256": "3d9d45bdaea7f8724f95ced3d75771734baf530ffff5415f40600000a1d7c76f"
+    },
+    "Train/Stealing": {
+      "videos": 95,
+      "frames": 44802,
+      "bytes": 1192267391,
+      "sha256": "76e6981ba6e86ebb9df86519c76b77979da6cf8f8010d3b6ef70104ab42367f6"
+    },
+    "Train/Vandalism": {
+      "videos": 45,
+      "frames": 13626,
+      "bytes": 360613740,
+      "sha256": "8cd0175f2ec27acab67a072566df2a71899d7aa2faf3641bde60124227b5b25a"
+    }
+  },
+  "resolution": {
+    "sampled": 200,
+    "unreadable": 0,
+    "resolutions_WxHxC": {
+      "320x240x3": 200
+    }
+  },
+  "issues": {
+    "unparsed_names": 0,
+    "ignored_files": 1650,
+    "unknown_categories": []
+  },
+  "temporal_annotations": {
+    "path": "data/raw/Temporal_Anomaly_Annotation_for_Testing_Videos.txt",
+    "sha256": "3b9542413f2ed9e94f73bf0488c151b3d7d595a8d2ad30f524e9243a2ae2a17c",
+    "videos": 290
+  },
+  "tool_version": "0.6.0"
+}

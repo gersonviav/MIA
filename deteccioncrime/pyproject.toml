@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vad-ucfcrime"
+version = "0.4.0"
+description = "Detección de anomalías en video de vigilancia (UCF-Crime, 3 clases) — two-stream ConvNeXt + Transformer temporal"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Gerson Villugas Avellaneda" }]
+license = { text = "Uso académico" }
+dependencies = [
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "timm>=0.9.12",
+    "einops>=0.7",
+    "opencv-python>=4.8",
+    "numpy>=1.24",
+    "scikit-learn>=1.3",
+    "matplotlib>=3.7",
+    "tqdm>=4.66",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+notebooks = ["jupyterlab>=4.0", "pandas>=2.0"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+vad = "vad.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

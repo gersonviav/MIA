@@ -1,0 +1,43 @@
+# Datos (pesados) — ignorar todo por defecto, versionar solo .gitkeep y los JSON de versión
+data/**
+!data/
+!data/raw/
+!data/raw/.gitkeep
+!data/processed/
+!data/processed/.gitkeep
+!data/manifests*/
+!data/manifests*/*.json
+data/manifests*/raw_dataset_version.prev_*.json
+
+# Carpetas de datos/salidas de los scripts antiguos (raíz del repo)
+/ucf_crime/
+/ucf_crime_3class/
+/checkpoints_3class/
+/eval_outputs/
+
+# Artefactos y logs
+artifacts/
+logs/
+*.pth
+*.pt
+*.npz
+*.mp4
+*.avi
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+venv/
+.venv/
+anomalia/
+.env
+
+# SO / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
