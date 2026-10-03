@@ -78,6 +78,10 @@ vad --help
 ```
 
 ## 2. Datos
+**Fuente:** UCF-Crime Dataset [1], Center for Research in Computer Vision (CRCV), University of Central Florida.
+Página oficial: https://www.crcv.ucf.edu/projects/real-world/
+
+De ahí se obtienen los videos y el archivo de anotaciones temporales del test. Los frames se ubican así:
 
 ```
 data/raw/ucf_crime/Train/<Categoria>/<VideoID>_<frame>.png
