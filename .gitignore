@@ -17,7 +17,6 @@ data/manifests*/raw_dataset_version.prev_*.json
 
 # Artefactos y logs
 artifacts/
-logs/
 *.pth
 *.pt
 *.npz
