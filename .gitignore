@@ -14,7 +14,7 @@ data/manifests*/raw_dataset_version.prev_*.json
 /ucf_crime_3class/
 /checkpoints_3class/
 /eval_outputs/
-
+ 
 # Artefactos y logs
 artifacts/
 *.pth
