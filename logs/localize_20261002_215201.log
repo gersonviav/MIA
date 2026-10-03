@@ -1,0 +1,8 @@
+2026-10-02 21:52:01,344 | INFO    | vad.localize | Log de ejecución: logs\localize_20261002_215201.log
+2026-10-02 21:52:14,052 | INFO    | vad.localize | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "6d274cc", "config_file": "configs\\hr320.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-02 21:52:16,195 | INFO    | matplotlib.font_manager | generated new fontManager
+2026-10-02 21:52:17,912 | INFO    | vad.inference | Checkpoint artifacts\checkpoints_320\best_model.pth | época 3 | val macro-F1 0.6630 | score_head=local
+2026-10-02 21:52:18,026 | INFO    | vad.localize | Localizando 237 videos | umbral 0.50 | suavizado 5 snippets | unión de huecos ≤ 3.0 s | anotaciones: 290
+2026-10-02 21:52:36,547 | INFO    | vad.localize | tIoU medio 0.20273788486800975 | videos con tIoU≥0.5 0.11494252873563218 | normales con falsa alarma 0.07333333333333333
+2026-10-02 21:52:36,547 | INFO    | vad.localize | Salidas en artifacts\reports_320\localization_test
+2026-10-02 21:52:36,552 | INFO    | vad.localize | 'localize' completado en 22.5 s

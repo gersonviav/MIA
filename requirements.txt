@@ -1,8 +1,9 @@
 # Instalar PyTorch primero con la variante CUDA correcta (ver README), luego:
 #   pip install -r requirements.txt && pip install -e .
 # Para fijar versiones exactas de tu entorno:  pip freeze > requirements-lock.txt
-torch>=2.1
-torchvision>=0.16
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
 timm>=0.9.12
 einops>=0.7
 opencv-python>=4.8

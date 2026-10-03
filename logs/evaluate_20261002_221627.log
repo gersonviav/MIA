@@ -1,0 +1,23 @@
+2026-10-02 22:16:27,663 | INFO    | vad.evaluate | Log de ejecución: logs\evaluate_20261002_221627.log
+2026-10-02 22:16:29,121 | INFO    | vad.evaluate | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "6d274cc", "config_file": "configs\\hr320.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-02 22:16:30,517 | INFO    | vad.inference | Checkpoint artifacts\checkpoints_320\best_model.pth | época 3 | val macro-F1 0.6630 | score_head=local
+2026-10-02 22:16:30,547 | INFO    | vad.evaluate | Evaluando 237 videos de test | anotaciones temporales: 290 | suavizado del score: 5 snippets
+2026-10-02 22:16:31,006 | INFO    | vad.evaluate |   25/237 videos
+2026-10-02 22:16:31,242 | INFO    | vad.evaluate |   50/237 videos
+2026-10-02 22:16:31,465 | INFO    | vad.evaluate |   75/237 videos
+2026-10-02 22:16:31,666 | INFO    | vad.evaluate |   100/237 videos
+2026-10-02 22:16:31,838 | INFO    | vad.evaluate |   125/237 videos
+2026-10-02 22:16:32,278 | INFO    | vad.evaluate |   150/237 videos
+2026-10-02 22:16:32,495 | INFO    | vad.evaluate |   175/237 videos
+2026-10-02 22:16:32,721 | INFO    | vad.evaluate |   200/237 videos
+2026-10-02 22:16:32,915 | INFO    | vad.evaluate |   225/237 videos
+2026-10-02 22:16:33,862 | INFO    | vad.evaluate | ============================================================
+2026-10-02 22:16:33,862 | INFO    | vad.evaluate | RESULTADOS (TEST)
+2026-10-02 22:16:33,862 | INFO    | vad.evaluate | Video  | acc 0.7848 | macro-F1 0.6089 | macro AUC 0.9009
+2026-10-02 22:16:33,862 | INFO    | vad.evaluate |   NormalVideos  P 0.907  R 0.907  F1 0.907
+2026-10-02 22:16:33,862 | INFO    | vad.evaluate |   Fighting      P 0.156  R 0.500  F1 0.238
+2026-10-02 22:16:33,863 | INFO    | vad.evaluate |   Vandalism     P 0.818  R 0.584  F1 0.682
+2026-10-02 22:16:33,863 | INFO    | vad.evaluate | Binario (normal vs anómalo) | acc 0.8819 | recall anomalía 0.839 | especificidad 0.907 | AUC(1-P normal) 0.9398 | AUC(max score) 0.9306
+2026-10-02 22:16:33,863 | INFO    | vad.evaluate | Frame  | AUC 0.8296 | AP 0.2277 | AUC solo anómalos 0.6100 | 973,730 frames
+2026-10-02 22:16:33,863 | INFO    | vad.evaluate | Salidas en artifacts\reports_320\test
+2026-10-02 22:16:33,865 | INFO    | vad.evaluate | 'evaluate' completado en 4.7 s
