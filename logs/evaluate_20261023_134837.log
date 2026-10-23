@@ -1,0 +1,23 @@
+2026-10-23 13:48:37,679 | INFO    | vad.evaluate | Log de ejecución: logs\evaluate_20261023_134837.log
+2026-10-23 13:48:38,842 | INFO    | vad.evaluate | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_cnn_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 13:48:38,842 | INFO    | vad.evaluate | Overrides: {'paths.checkpoints_dir': 'artifacts/seeds/cnn_v2/s4', 'paths.reports_dir': 'artifacts/seeds/cnn_v2/s4/reports'}
+2026-10-23 13:48:39,969 | INFO    | vad.inference | Checkpoint artifacts\seeds\cnn_v2\s4\best_model.pth | época 4 | val macro-F1 0.7599 | score_head=local
+2026-10-23 13:48:39,994 | INFO    | vad.evaluate | Evaluando 203 videos de test | anotaciones temporales: 290 | suavizado del score: 5 snippets
+2026-10-23 13:48:40,387 | INFO    | vad.evaluate |   25/203 videos
+2026-10-23 13:48:40,534 | INFO    | vad.evaluate |   50/203 videos
+2026-10-23 13:48:40,735 | INFO    | vad.evaluate |   75/203 videos
+2026-10-23 13:48:40,901 | INFO    | vad.evaluate |   100/203 videos
+2026-10-23 13:48:41,036 | INFO    | vad.evaluate |   125/203 videos
+2026-10-23 13:48:41,384 | INFO    | vad.evaluate |   150/203 videos
+2026-10-23 13:48:41,566 | INFO    | vad.evaluate |   175/203 videos
+2026-10-23 13:48:41,733 | INFO    | vad.evaluate |   200/203 videos
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | ============================================================
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | RESULTADOS (TEST)
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | Video  | acc 0.8571 | macro-F1 0.6596 | macro AUC 0.9105
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate |   Normal        P 0.951  R 0.913  F1 0.932
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate |   Aggression    P 0.333  R 0.300  F1 0.316
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate |   Theft         P 0.680  R 0.791  F1 0.731
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | Binario (normal vs anómalo) | acc 0.9015 | recall anomalía 0.868 | especificidad 0.913 | AUC(1-P normal) 0.9429 | AUC(max score) 0.9317
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | Frame  | AUC 0.9105 | AP 0.4561 | AUC solo anómalos 0.6999 | 870,440 frames
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | Salidas en artifacts\seeds\cnn_v2\s4\reports\test
+2026-10-23 13:48:42,410 | INFO    | vad.evaluate | 'evaluate' completado en 3.6 s

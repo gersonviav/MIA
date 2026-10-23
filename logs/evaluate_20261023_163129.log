@@ -1,0 +1,23 @@
+2026-10-23 16:31:29,593 | INFO    | vad.evaluate | Log de ejecución: logs\evaluate_20261023_163129.log
+2026-10-23 16:31:30,899 | INFO    | vad.evaluate | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_farneback_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 16:31:30,905 | INFO    | vad.evaluate | Overrides: {'paths.checkpoints_dir': 'artifacts/seeds/farneback_v2/s4', 'paths.reports_dir': 'artifacts/seeds/farneback_v2/s4/reports'}
+2026-10-23 16:31:32,086 | INFO    | vad.inference | Checkpoint artifacts\seeds\farneback_v2\s4\best_model.pth | época 9 | val macro-F1 0.6798 | score_head=local
+2026-10-23 16:31:32,107 | INFO    | vad.evaluate | Evaluando 203 videos de test | anotaciones temporales: 290 | suavizado del score: 5 snippets
+2026-10-23 16:31:32,627 | INFO    | vad.evaluate |   25/203 videos
+2026-10-23 16:31:32,992 | INFO    | vad.evaluate |   50/203 videos
+2026-10-23 16:31:33,420 | INFO    | vad.evaluate |   75/203 videos
+2026-10-23 16:31:33,757 | INFO    | vad.evaluate |   100/203 videos
+2026-10-23 16:31:34,053 | INFO    | vad.evaluate |   125/203 videos
+2026-10-23 16:31:34,900 | INFO    | vad.evaluate |   150/203 videos
+2026-10-23 16:31:35,334 | INFO    | vad.evaluate |   175/203 videos
+2026-10-23 16:31:35,721 | INFO    | vad.evaluate |   200/203 videos
+2026-10-23 16:31:37,155 | INFO    | vad.evaluate | ============================================================
+2026-10-23 16:31:37,155 | INFO    | vad.evaluate | RESULTADOS (TEST)
+2026-10-23 16:31:37,155 | INFO    | vad.evaluate | Video  | acc 0.8818 | macro-F1 0.7341 | macro AUC 0.8942
+2026-10-23 16:31:37,155 | INFO    | vad.evaluate |   Normal        P 0.934  R 0.947  F1 0.940
+2026-10-23 16:31:37,155 | INFO    | vad.evaluate |   Aggression    P 0.500  R 0.500  F1 0.500
+2026-10-23 16:31:37,171 | INFO    | vad.evaluate |   Theft         P 0.780  R 0.744  F1 0.762
+2026-10-23 16:31:37,171 | INFO    | vad.evaluate | Binario (normal vs anómalo) | acc 0.9113 | recall anomalía 0.811 | especificidad 0.947 | AUC(1-P normal) 0.9275 | AUC(max score) 0.9139
+2026-10-23 16:31:37,171 | INFO    | vad.evaluate | Frame  | AUC 0.8580 | AP 0.2903 | AUC solo anómalos 0.6610 | 870,440 frames
+2026-10-23 16:31:37,171 | INFO    | vad.evaluate | Salidas en artifacts\seeds\farneback_v2\s4\reports\test
+2026-10-23 16:31:37,171 | INFO    | vad.evaluate | 'evaluate' completado en 6.3 s

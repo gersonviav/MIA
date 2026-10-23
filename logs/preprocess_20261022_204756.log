@@ -1,0 +1,35 @@
+2026-10-22 20:47:56,891 | INFO    | vad.preprocess | Log de ejecución: logs\preprocess_20261022_204756.log
+2026-10-22 20:48:10,176 | INFO    | vad.preprocess | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-22 20:48:10,615 | INFO    | vad.preprocess | ======================================================================
+2026-10-22 20:48:10,615 | INFO    | vad.preprocess | PREPROCESAMIENTO → 3 clases
+2026-10-22 20:48:10,615 | INFO    | vad.preprocess | ======================================================================
+2026-10-22 20:48:10,615 | INFO    | vad.preprocess | Dataset crudo: b5624813ff432dbb… (1,306,972 frames, ingestado 2026-10-01T20:32:32+00:00)
+2026-10-22 20:48:15,019 | INFO    | vad.preprocess | [1/4] Filtrando videos (min_frames=8, min_brightness=30)...
+2026-10-22 20:48:15,021 | INFO    | vad.preprocess | Categorías fuera del mapeo (se ignoran): ['Arson', 'Explosion', 'Vandalism']
+2026-10-22 20:48:21,172 | INFO    | vad.preprocess |   200/1500 videos evaluados
+2026-10-22 20:48:27,498 | INFO    | vad.preprocess |   400/1500 videos evaluados
+2026-10-22 20:48:33,577 | INFO    | vad.preprocess |   600/1500 videos evaluados
+2026-10-22 20:48:39,998 | INFO    | vad.preprocess |   800/1500 videos evaluados
+2026-10-22 20:48:46,354 | INFO    | vad.preprocess |   1000/1500 videos evaluados
+2026-10-22 20:48:52,550 | INFO    | vad.preprocess |   1200/1500 videos evaluados
+2026-10-22 20:48:58,832 | INFO    | vad.preprocess |   1400/1500 videos evaluados
+2026-10-22 20:49:02,017 | INFO    | vad.preprocess |   Train Normal        ok= 797  cortos=  0  oscuros=  3
+2026-10-22 20:49:02,017 | INFO    | vad.preprocess |   Train Aggression    ok= 138  cortos=  0  oscuros=  2
+2026-10-22 20:49:02,018 | INFO    | vad.preprocess |   Train Theft         ok= 351  cortos=  0  oscuros=  5
+2026-10-22 20:49:02,018 | INFO    | vad.preprocess |   Test  Normal        ok= 150  cortos=  0  oscuros=  0
+2026-10-22 20:49:02,018 | INFO    | vad.preprocess |   Test  Aggression    ok=  10  cortos=  0  oscuros=  0
+2026-10-22 20:49:02,018 | INFO    | vad.preprocess |   Test  Theft         ok=  43  cortos=  0  oscuros=  1
+2026-10-22 20:49:02,018 | INFO    | vad.preprocess | [2/4] Tope por clase en Train y separación train/val (val_ratio=0.20)...
+2026-10-22 20:49:02,023 | INFO    | vad.preprocess |   Normal        limitado a 200 (había 797)
+2026-10-22 20:49:02,025 | INFO    | vad.preprocess |   Theft         limitado a 150 (había 351)
+2026-10-22 20:49:02,026 | INFO    | vad.preprocess | [3/4] Verificando ausencia de fuga entre splits...
+2026-10-22 20:49:02,026 | INFO    | vad.preprocess |   OK — sin videos compartidos entre train/val/test
+2026-10-22 20:49:02,026 | INFO    | vad.preprocess | [4/4] Escribiendo salidas en data\processed\ucf_crime_3class_320_v2...
+2026-10-22 20:49:02,117 | INFO    | vad.preprocess |   train  390 videos  {'Aggression': 110, 'Normal': 160, 'Theft': 120}
+2026-10-22 20:49:02,138 | INFO    | vad.preprocess |   val     98 videos  {'Aggression': 28, 'Normal': 40, 'Theft': 30}
+2026-10-22 20:49:02,159 | INFO    | vad.preprocess |   test   203 videos  {'Aggression': 10, 'Normal': 150, 'Theft': 43}
+2026-10-22 20:49:02,212 | INFO    | vad.preprocess | ----------------------------------------------------------------------
+2026-10-22 20:49:02,212 | INFO    | vad.preprocess | Excluidos: 11 (ver excluded_videos.csv)
+2026-10-22 20:49:02,212 | INFO    | vad.preprocess | SHA-256 dataset procesado: 32c2599cc9fe9abd1d431ea2efa2059625538ad615792c8cd458d2602d943033
+2026-10-22 20:49:02,212 | INFO    | vad.preprocess | Siguiente paso: vad train
+2026-10-22 20:49:02,418 | INFO    | vad.preprocess | 'preprocess' completado en 52.2 s

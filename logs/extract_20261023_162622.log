@@ -1,0 +1,17 @@
+2026-10-23 16:26:22,594 | INFO    | vad.extract | Log de ejecución: logs\extract_20261023_162622.log
+2026-10-23 16:26:23,856 | INFO    | vad.extract | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_cnn_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 16:26:25,150 | INFO    | vad.extract | ======================================================================
+2026-10-23 16:26:25,150 | INFO    | vad.extract | EXTRACCIÓN DE FEATURES — apariencia: convnext_small | movimiento: convnext_tiny sobre |Δframe| | cuda
+2026-10-23 16:26:25,150 | INFO    | vad.extract | ======================================================================
+2026-10-23 16:26:25,150 | INFO    | vad.extract | Videos: 691 (pendientes 0, ya extraídos 691) | frames pendientes: 0 | destino: data\processed\features\convnext_s_t_diff_320
+2026-10-23 16:26:25,150 | INFO    | vad.extract | batch_frames=128 | chunk_frames=256 | read_workers=8
+2026-10-23 16:26:25,538 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_small.in12k_ft_in1k)
+2026-10-23 16:26:25,742 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_small.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-23 16:26:25,743 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-23 16:26:25,745 | INFO    | timm.models._hub | [timm/convnext_small.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-23 16:26:26,389 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_tiny.in12k_ft_in1k)
+2026-10-23 16:26:26,515 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_tiny.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-23 16:26:26,517 | INFO    | timm.models._hub | [timm/convnext_tiny.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-23 16:26:26,616 | INFO    | vad.extract | Extraídos: 0 | dims rgb=768 mot=768
+2026-10-23 16:26:26,616 | INFO    | vad.extract | Siguiente paso: vad train
+2026-10-23 16:26:26,631 | INFO    | vad.extract | 'extract' completado en 2.8 s

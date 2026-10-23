@@ -1,0 +1,7 @@
+2026-10-22 21:27:15,455 | INFO    | vad.train | Log de ejecución: logs\train_20261022_212715.log
+2026-10-22 21:27:16,649 | INFO    | vad.train | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_clip_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-22 21:27:28,164 | INFO    | vad.train | ======================================================================
+2026-10-22 21:27:28,166 | INFO    | vad.train | ENTRENAMIENTO MIL | cuda | snippet=3 frames | 32 segmentos (Transformer) / 128 (scorer) | top-k 0.1·T | seed 42
+2026-10-22 21:27:28,166 | INFO    | vad.train | λ: {'lambda_ent': 0.3, 'lambda_seg': 0.5, 'lambda_smooth': 0.1, 'lambda_rank': 1.0, 'rank_margin': 1.0, 'rank_topk': 3, 'rank_topk_ratio': 0.1, 'lambda_normal': 1.0, 'lambda_topk': 1.0, 'lambda_sparsity': 0.1, 'lambda_score_smooth': 0.1}
+2026-10-22 21:27:28,167 | INFO    | vad.train | ======================================================================
+2026-10-22 21:27:28,167 | INFO    | vad.train | Cargando features...

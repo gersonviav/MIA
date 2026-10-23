@@ -1,0 +1,23 @@
+2026-10-23 16:35:06,031 | INFO    | vad.evaluate | Log de ejecución: logs\evaluate_20261023_163506.log
+2026-10-23 16:35:07,379 | INFO    | vad.evaluate | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_sinbrillo_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 16:35:07,379 | INFO    | vad.evaluate | Overrides: {'paths.checkpoints_dir': 'artifacts/seeds/sinbrillo_v2/s4', 'paths.reports_dir': 'artifacts/seeds/sinbrillo_v2/s4/reports'}
+2026-10-23 16:35:08,669 | INFO    | vad.inference | Checkpoint artifacts\seeds\sinbrillo_v2\s4\best_model.pth | época 12 | val macro-F1 0.7340 | score_head=local
+2026-10-23 16:35:08,694 | INFO    | vad.evaluate | Evaluando 204 videos de test | anotaciones temporales: 290 | suavizado del score: 5 snippets
+2026-10-23 16:35:09,243 | INFO    | vad.evaluate |   25/204 videos
+2026-10-23 16:35:09,594 | INFO    | vad.evaluate |   50/204 videos
+2026-10-23 16:35:10,010 | INFO    | vad.evaluate |   75/204 videos
+2026-10-23 16:35:10,336 | INFO    | vad.evaluate |   100/204 videos
+2026-10-23 16:35:10,637 | INFO    | vad.evaluate |   125/204 videos
+2026-10-23 16:35:11,479 | INFO    | vad.evaluate |   150/204 videos
+2026-10-23 16:35:11,920 | INFO    | vad.evaluate |   175/204 videos
+2026-10-23 16:35:12,281 | INFO    | vad.evaluate |   200/204 videos
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | ============================================================
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | RESULTADOS (TEST)
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | Video  | acc 0.7843 | macro-F1 0.6007 | macro AUC 0.8760
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate |   Normal        P 0.926  R 0.840  F1 0.881
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate |   Aggression    P 0.211  R 0.400  F1 0.276
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate |   Theft         P 0.612  R 0.682  F1 0.645
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | Binario (normal vs anómalo) | acc 0.8333 | recall anomalía 0.815 | especificidad 0.840 | AUC(1-P normal) 0.8949 | AUC(max score) 0.8993
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | Frame  | AUC 0.8919 | AP 0.4076 | AUC solo anómalos 0.6876 | 872,360 frames
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | Salidas en artifacts\seeds\sinbrillo_v2\s4\reports\test
+2026-10-23 16:35:13,716 | INFO    | vad.evaluate | 'evaluate' completado en 6.3 s

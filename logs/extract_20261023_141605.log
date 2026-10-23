@@ -1,0 +1,18 @@
+2026-10-23 14:16:05,771 | INFO    | vad.extract | Log de ejecución: logs\extract_20261023_141605.log
+2026-10-23 14:16:07,153 | INFO    | vad.extract | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_clip_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 14:16:08,533 | INFO    | vad.extract | ======================================================================
+2026-10-23 14:16:08,533 | INFO    | vad.extract | EXTRACCIÓN DE FEATURES — apariencia: vit_base_patch16_clip_224.openai | movimiento: convnext_tiny sobre |Δframe| | cuda
+2026-10-23 14:16:08,534 | INFO    | vad.extract | ======================================================================
+2026-10-23 14:16:08,534 | INFO    | vad.extract | Videos: 691 (pendientes 0, ya extraídos 691) | frames pendientes: 0 | destino: data\processed\features\clipb16_t_diff_320
+2026-10-23 14:16:08,534 | INFO    | vad.extract | batch_frames=128 | chunk_frames=256 | read_workers=8
+2026-10-23 14:16:09,185 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/vit_base_patch16_clip_224.openai)
+2026-10-23 14:16:09,374 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/vit_base_patch16_clip_224.openai/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-10-23 14:16:09,509 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/vit_base_patch16_clip_224.openai/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-10-23 14:16:10,299 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_tiny.in12k_ft_in1k)
+2026-10-23 14:16:10,417 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_tiny.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-23 14:16:10,417 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-23 14:16:10,418 | INFO    | timm.models._hub | [timm/convnext_tiny.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-23 14:16:10,482 | WARNING | vad.extract | index.json existente difiere en 'processed_dataset_sha256' (32c2599cc9fe9abd1d431ea2efa2059625538ad615792c8cd458d2602d943033 → a8fbce048512eeb41263696d29881a92f8fa9ce78ac41245059758da22a3acfc). Usa otro features.dir o borra la carpeta.
+2026-10-23 14:16:10,482 | INFO    | vad.extract | Extraídos: 0 | dims rgb=768 mot=768
+2026-10-23 14:16:10,482 | INFO    | vad.extract | Siguiente paso: vad train
+2026-10-23 14:16:10,493 | INFO    | vad.extract | 'extract' completado en 3.3 s
