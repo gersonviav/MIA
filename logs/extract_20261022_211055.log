@@ -1,0 +1,30 @@
+2026-10-22 21:10:55,225 | INFO    | vad.extract | Log de ejecución: logs\extract_20261022_211055.log
+2026-10-22 21:10:56,618 | INFO    | vad.extract | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-22 21:11:09,129 | INFO    | vad.extract | ======================================================================
+2026-10-22 21:11:09,129 | INFO    | vad.extract | EXTRACCIÓN DE FEATURES — apariencia: convnext_small | movimiento: convnext_tiny sobre |Δframe| | cuda
+2026-10-22 21:11:09,129 | INFO    | vad.extract | ======================================================================
+2026-10-22 21:11:09,129 | INFO    | vad.extract | Videos: 691 (pendientes 95, ya extraídos 596) | frames pendientes: 46,786 | destino: data\processed\features\convnext_s_t_diff_320
+2026-10-22 21:11:09,129 | INFO    | vad.extract | batch_frames=128 | chunk_frames=256 | read_workers=8
+2026-10-22 21:11:09,760 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_small.in12k_ft_in1k)
+2026-10-22 21:11:09,963 | INFO    | httpx2 | HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-10-22 21:11:10,080 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_small.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-22 21:11:10,080 | INFO    | timm.models._hub | [timm/convnext_small.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-22 21:11:10,995 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_tiny.in12k_ft_in1k)
+2026-10-22 21:11:11,115 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_tiny.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-22 21:11:11,116 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-22 21:11:11,125 | INFO    | timm.models._hub | [timm/convnext_tiny.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-22 21:11:11,337 | WARNING | vad.extract | index.json existente difiere en 'motion_input' (None → diff). Usa otro features.dir o borra la carpeta.
+2026-10-22 21:11:11,337 | WARNING | vad.extract | index.json existente difiere en 'processed_dataset_sha256' (bd6157673f0d0e8c196d7a19a18e370fcd1604d9f8a84ad7f930709add97a5b8 → 32c2599cc9fe9abd1d431ea2efa2059625538ad615792c8cd458d2602d943033). Usa otro features.dir o borra la carpeta.
+2026-10-22 21:12:11,655 | INFO    | vad.extract |   10/95 videos | 57 frames/s | GPU esperando al disco 1% | 1.0 min | faltan ~13 min
+2026-10-22 21:13:51,322 | INFO    | vad.extract |   20/95 videos | 63 frames/s | GPU esperando al disco 1% | 2.7 min | faltan ~10 min
+2026-10-22 21:15:13,159 | INFO    | vad.extract |   30/95 videos | 60 frames/s | GPU esperando al disco 1% | 4.0 min | faltan ~9 min
+2026-10-22 21:16:29,409 | INFO    | vad.extract |   40/95 videos | 58 frames/s | GPU esperando al disco 1% | 5.3 min | faltan ~8 min
+2026-10-22 21:17:18,951 | INFO    | vad.extract |   50/95 videos | 68 frames/s | GPU esperando al disco 1% | 6.1 min | faltan ~5 min
+2026-10-22 21:18:33,786 | INFO    | vad.extract |   60/95 videos | 66 frames/s | GPU esperando al disco 1% | 7.4 min | faltan ~4 min
+2026-10-22 21:18:57,367 | INFO    | vad.extract |   70/95 videos | 77 frames/s | GPU esperando al disco 1% | 7.8 min | faltan ~2 min
+2026-10-22 21:19:28,975 | INFO    | vad.extract |   80/95 videos | 82 frames/s | GPU esperando al disco 1% | 8.3 min | faltan ~1 min
+2026-10-22 21:20:11,489 | INFO    | vad.extract |   90/95 videos | 81 frames/s | GPU esperando al disco 1% | 9.0 min | faltan ~1 min
+2026-10-22 21:20:34,219 | INFO    | vad.extract |   95/95 videos | 83 frames/s | GPU esperando al disco 1% | 9.4 min | faltan ~0 min
+2026-10-22 21:20:34,219 | INFO    | vad.extract | Extraídos: 95 | dims rgb=768 mot=768
+2026-10-22 21:20:34,219 | INFO    | vad.extract | Siguiente paso: vad train
+2026-10-22 21:20:34,235 | INFO    | vad.extract | 'extract' completado en 577.6 s

@@ -1,0 +1,12 @@
+2026-10-22 21:26:54,935 | INFO    | vad.localize | Log de ejecución: logs\localize_20261022_212654.log
+2026-10-22 21:26:56,271 | INFO    | vad.localize | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_clip_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-22 21:26:56,651 | ERROR   | vad.localize | Error no controlado en 'localize'
+Traceback (most recent call last):
+  File "E:\deepl\MIA\src\vad\cli.py", line 96, in main
+    run_localize(cfg, args.checkpoint, args.split, args.video_id, args.plot_all)
+  File "E:\deepl\MIA\src\vad\localize.py", line 102, in run_localize
+    model, _ = load_model(cfg, checkpoint, device)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\deepl\MIA\src\vad\inference.py", line 42, in load_model
+    raise FileNotFoundError(f"No existe {checkpoint}. Ejecuta primero: vad train")
+FileNotFoundError: No existe artifacts\checkpoints_320_clip_v2\best_model.pth. Ejecuta primero: vad train

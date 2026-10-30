@@ -1,0 +1,28 @@
+2026-10-23 13:49:04,896 | INFO    | vad.extract | Log de ejecución: logs\extract_20261023_134904.log
+2026-10-23 13:49:06,054 | INFO    | vad.extract | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "9af7fe6", "config_file": "configs\\hr320_farneback_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-10-23 13:49:07,225 | INFO    | vad.extract | ======================================================================
+2026-10-23 13:49:07,225 | INFO    | vad.extract | EXTRACCIÓN DE FEATURES — apariencia: convnext_small | movimiento: convnext_tiny sobre flujo Farnebäck (OpenCV) | cuda
+2026-10-23 13:49:07,225 | INFO    | vad.extract | ======================================================================
+2026-10-23 13:49:07,225 | INFO    | vad.extract | Videos: 691 (pendientes 95, ya extraídos 596) | frames pendientes: 46,786 | destino: data\processed\features\convnext_s_t_farneback_320
+2026-10-23 13:49:07,225 | INFO    | vad.extract | batch_frames=128 | chunk_frames=256 | read_workers=8
+2026-10-23 13:49:07,582 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_small.in12k_ft_in1k)
+2026-10-23 13:49:07,746 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_small.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-23 13:49:07,746 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-23 13:49:07,762 | INFO    | timm.models._hub | [timm/convnext_small.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-23 13:49:08,172 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_tiny.in12k_ft_in1k)
+2026-10-23 13:49:08,301 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_tiny.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-10-23 13:49:08,301 | INFO    | timm.models._hub | [timm/convnext_tiny.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-10-23 13:49:08,376 | WARNING | vad.extract | index.json existente difiere en 'processed_dataset_sha256' (bd6157673f0d0e8c196d7a19a18e370fcd1604d9f8a84ad7f930709add97a5b8 → 32c2599cc9fe9abd1d431ea2efa2059625538ad615792c8cd458d2602d943033). Usa otro features.dir o borra la carpeta.
+2026-10-23 13:49:54,124 | INFO    | vad.extract |   10/95 videos | 74 frames/s | GPU esperando al disco 1% | 0.8 min | faltan ~10 min
+2026-10-23 13:50:50,845 | INFO    | vad.extract |   20/95 videos | 98 frames/s | GPU esperando al disco 0% | 1.7 min | faltan ~6 min
+2026-10-23 13:51:37,353 | INFO    | vad.extract |   30/95 videos | 97 frames/s | GPU esperando al disco 0% | 2.5 min | faltan ~6 min
+2026-10-23 13:52:22,593 | INFO    | vad.extract |   40/95 videos | 95 frames/s | GPU esperando al disco 0% | 3.2 min | faltan ~5 min
+2026-10-23 13:53:07,759 | INFO    | vad.extract |   50/95 videos | 104 frames/s | GPU esperando al disco 0% | 4.0 min | faltan ~3 min
+2026-10-23 13:54:45,193 | INFO    | vad.extract |   60/95 videos | 87 frames/s | GPU esperando al disco 0% | 5.6 min | faltan ~3 min
+2026-10-23 13:55:37,252 | INFO    | vad.extract |   70/95 videos | 92 frames/s | GPU esperando al disco 0% | 6.5 min | faltan ~2 min
+2026-10-23 13:56:31,247 | INFO    | vad.extract |   80/95 videos | 92 frames/s | GPU esperando al disco 0% | 7.4 min | faltan ~1 min
+2026-10-23 13:57:28,839 | INFO    | vad.extract |   90/95 videos | 88 frames/s | GPU esperando al disco 0% | 8.3 min | faltan ~1 min
+2026-10-23 13:58:08,474 | INFO    | vad.extract |   95/95 videos | 87 frames/s | GPU esperando al disco 0% | 9.0 min | faltan ~0 min
+2026-10-23 13:58:08,474 | INFO    | vad.extract | Extraídos: 95 | dims rgb=768 mot=768
+2026-10-23 13:58:08,474 | INFO    | vad.extract | Siguiente paso: vad train
+2026-10-23 13:58:08,494 | INFO    | vad.extract | 'extract' completado en 542.4 s
