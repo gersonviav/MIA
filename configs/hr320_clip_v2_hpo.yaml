@@ -1,0 +1,133 @@
+# Generado por notebooks/05_optimizacion_hiperparametros.ipynb (2026-11-05)
+# Base: configs/hr320_clip_v2.yaml | ganadora: TPE#23 | estudio: artifacts/hpo/hr320_clip_v2/
+# Cambios respecto a la base:
+#   train.lr: 0.0003 → 8.04914e-05
+#   train.weight_decay: 0.01 → 0.0069616
+#   train.lambda_ent: 0.3 → 0.715808
+#   train.lambda_seg: 0.5 → 0.493588
+#   train.lambda_smooth: 0.1 → 0.289145
+#   model.d_model: 512 → 256
+#   model.num_layers: 2 → 4
+#   model.dropout: 0.3 → 0.264659
+#   model.attn_temp: 0.5 → 0.520265
+
+paths:
+  raw_dir: data/raw/ucf_crime_320
+  temporal_annotations: data/raw/Temporal_Anomaly_Annotation_for_Testing_Videos.txt
+  manifests_dir: data/manifests_320
+  processed_dir: data/processed/ucf_crime_3class_320_v2
+  checkpoints_dir: artifacts/checkpoints_320_clip_v2_hpo
+  reports_dir: artifacts/reports_320_clip_v2_hpo
+  logs_dir: logs
+  dataset_doc: docs/DATASET.md
+dataset:
+  name: UCF-Crime (videos originales → frames 320×240)
+  source_url: https://www.crcv.ucf.edu/projects/real-world/
+  download_date: null
+  fps: 30
+  img_exts:
+  - .jpg
+  - .jpeg
+  - .png
+videos:
+  dir: data/raw/ucf_crime_videos
+  train_list: data/raw/Anomaly_Train.txt
+  test_list: data/raw/Anomaly_Test.txt
+  out_dir: data/raw/ucf_crime_320
+  every_n: 10
+  max_side: 320
+  jpeg_quality: 95
+  workers: 4
+ingest:
+  hash_workers: 8
+  resolution_sample: 200
+preprocess:
+  seed: 42
+  min_frames: 8
+  min_brightness: 30
+  brightness_sample_frames: 5
+  val_ratio: 0.2
+  max_per_class_train:
+    Normal: 200
+    Aggression: 150
+    Theft: 150
+  class_to_idx:
+    Normal: 0
+    Aggression: 1
+    Theft: 2
+  class_mapping:
+    Normal:
+    - NormalVideos
+    Aggression:
+    - Assault
+    - Abuse
+    - Fighting
+    Theft:
+    - Robbery
+    - Burglary
+    - Stealing
+    - Shoplifting
+features:
+  dir: data/processed/features/clipb16_t_diff_320
+  spatial_backbone: vit_base_patch16_clip_224.openai
+  motion_backbone: convnext_tiny
+  motion_input: diff
+  raft_model: raft_large
+  raft_batch: 32
+  flow_max_px: 20
+  farneback_workers: 8
+  pretrained: true
+  img_size: 224
+  batch_frames: 128
+  chunk_frames: 256
+  read_workers: 8
+  prefetch_chunks: 4
+snippet:
+  frames_per_snippet: 3
+mil:
+  num_segments: 32
+  scorer_segments: 128
+  window: 32
+  stride: 16
+model:
+  d_model: 256
+  nhead: 8
+  num_layers: 4
+  dropout: 0.26465902772428085
+  attn_temp: 0.520264626732109
+  topk: 0
+  score_head: local
+  scorer_hidden: 256
+  scorer_kernel: 3
+train:
+  epochs: 40
+  batch_size: 32
+  lr: 8.049141661805383e-05
+  weight_decay: 0.006961602899108652
+  patience: 8
+  seed: 42
+  num_workers: 0
+  lambda_ent: 0.7158081073248369
+  lambda_seg: 0.4935876789858519
+  lambda_smooth: 0.28914494272960517
+  lambda_rank: 1.0
+  rank_margin: 1.0
+  rank_topk: 3
+  rank_topk_ratio: 0.1
+  lambda_normal: 1.0
+  lambda_topk: 1.0
+  lambda_sparsity: 0.1
+  lambda_score_smooth: 0.1
+localize:
+  threshold: 0.5
+  min_duration_s: 1.0
+  smooth_snippets: 5
+  merge_gap_s: 3.0
+baseline:
+  Cs:
+  - 0.01
+  - 0.1
+  - 1.0
+  - 10.0
+  max_snippets_per_video: 64
+_config_path: configs\hr320_clip_v2.yaml

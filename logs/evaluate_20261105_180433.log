@@ -1,0 +1,22 @@
+2026-11-05 18:04:33,100 | INFO    | vad.evaluate | Log de ejecución: logs\evaluate_20261105_180433.log
+2026-11-05 18:04:41,928 | INFO    | vad.evaluate | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "af3bd0a", "config_file": "configs\\hr320_clip_v2_hpo.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-11-05 18:04:55,771 | INFO    | vad.inference | Checkpoint artifacts\checkpoints_320_clip_v2_hpo\best_model.pth | época 20 | val macro-F1 0.8109 | score_head=local
+2026-11-05 18:04:55,820 | INFO    | vad.evaluate | Evaluando 203 videos de test | anotaciones temporales: 290 | suavizado del score: 5 snippets
+2026-11-05 18:04:56,477 | INFO    | vad.evaluate |   25/203 videos
+2026-11-05 18:04:56,960 | INFO    | vad.evaluate |   50/203 videos
+2026-11-05 18:04:57,494 | INFO    | vad.evaluate |   75/203 videos
+2026-11-05 18:04:57,979 | INFO    | vad.evaluate |   100/203 videos
+2026-11-05 18:04:58,380 | INFO    | vad.evaluate |   125/203 videos
+2026-11-05 18:04:59,145 | INFO    | vad.evaluate |   150/203 videos
+2026-11-05 18:04:59,677 | INFO    | vad.evaluate |   175/203 videos
+2026-11-05 18:05:00,162 | INFO    | vad.evaluate |   200/203 videos
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | ============================================================
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | RESULTADOS (TEST)
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | Video  | acc 0.8818 | macro-F1 0.7323 | macro AUC 0.9427
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate |   Normal        P 0.929  R 0.953  F1 0.941
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate |   Aggression    P 0.500  R 0.500  F1 0.500
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate |   Theft         P 0.795  R 0.721  F1 0.756
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | Binario (normal vs anómalo) | acc 0.9113 | recall anomalía 0.792 | especificidad 0.953 | AUC(1-P normal) 0.9321 | AUC(max score) 0.9223
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | Frame  | AUC 0.9059 | AP 0.4109 | AUC solo anómalos 0.6993 | 870,440 frames
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | Salidas en artifacts\reports_320_clip_v2_hpo\test
+2026-11-05 18:05:00,913 | INFO    | vad.evaluate | 'evaluate' completado en 19.0 s
