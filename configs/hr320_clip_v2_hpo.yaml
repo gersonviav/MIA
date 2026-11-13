@@ -1,4 +1,4 @@
-# Generado por notebooks/05_optimizacion_hiperparametros.ipynb (2026-11-05)
+# Generado por notebooks/05_optimizacion_hiperparametros.ipynb (2026-11-13)
 # Base: configs/hr320_clip_v2.yaml | ganadora: TPE#23 | estudio: artifacts/hpo/hr320_clip_v2/
 # Cambios respecto a la base:
 #   train.lr: 0.0003 → 8.04914e-05

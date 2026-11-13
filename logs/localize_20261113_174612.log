@@ -1,0 +1,7 @@
+2026-11-13 17:46:12,020 | INFO    | vad.localize | Log de ejecución: logs\localize_20261113_174612.log
+2026-11-13 17:46:13,442 | INFO    | vad.localize | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "8fdb981", "config_file": "configs\\hr320_clip_v2_hpo.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-11-13 17:46:13,914 | INFO    | vad.inference | Checkpoint artifacts\checkpoints_320_clip_v2_hpo\best_model.pth | época 20 | val macro-F1 0.8109 | score_head=local
+2026-11-13 17:46:13,941 | INFO    | vad.localize | Localizando 203 videos | umbral 0.50 | suavizado 5 snippets | unión de huecos ≤ 3.0 s | anotaciones: 290
+2026-11-13 17:46:36,968 | INFO    | vad.localize | tIoU medio 0.2574631849876485 | videos con tIoU≥0.5 0.22641509433962265 | normales con falsa alarma 0.08
+2026-11-13 17:46:36,968 | INFO    | vad.localize | Salidas en artifacts\reports_320_clip_v2_hpo\localization_test
+2026-11-13 17:46:36,971 | INFO    | vad.localize | 'localize' completado en 23.5 s
