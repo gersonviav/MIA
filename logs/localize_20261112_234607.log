@@ -1,0 +1,8 @@
+2026-11-12 23:46:07,586 | INFO    | vad.localize | Log de ejecución: logs\localize_20261112_234607.log
+2026-11-12 23:46:08,851 | INFO    | vad.localize | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "c60ec3b", "config_file": "configs\\hr320_cnn_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-11-12 23:46:08,852 | INFO    | vad.localize | Overrides: {'paths.checkpoints_dir': 'artifacts/seeds/cnn_v2/s4', 'paths.reports_dir': 'artifacts/seeds/cnn_v2/s4/reports'}
+2026-11-12 23:46:09,311 | INFO    | vad.inference | Checkpoint artifacts\seeds\cnn_v2\s4\best_model.pth | época 4 | val macro-F1 0.7599 | score_head=local
+2026-11-12 23:46:09,336 | INFO    | vad.localize | Localizando 203 videos | umbral 0.50 | suavizado 5 snippets | unión de huecos ≤ 3.0 s | anotaciones: 290
+2026-11-12 23:46:12,367 | INFO    | vad.localize | tIoU medio 0.20978118297563147 | videos con tIoU≥0.5 0.1320754716981132 | normales con falsa alarma 0.08666666666666667
+2026-11-12 23:46:12,367 | INFO    | vad.localize | Salidas en artifacts\seeds\cnn_v2\s4\reports\localization_test
+2026-11-12 23:46:12,372 | INFO    | vad.localize | 'localize' completado en 3.5 s
