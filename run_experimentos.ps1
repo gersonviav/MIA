@@ -15,6 +15,7 @@ $Configs = @{
     "farneback_v2" = "configs/hr320_farneback_v2.yaml"  # Variante 1: movimiento con Farnebäck
     "sinbrillo_v2" = "configs/hr320_sinbrillo_v2.yaml"  # Variante 2: sin filtro de brillo
     "clip_v2"      = "configs/hr320_clip_v2.yaml"       # Opcional: CLIP en apariencia (modelo final)
+    "cnnclip_v2"   = "configs/hr320_cnnclip_v2.yaml"    # V4: ConvNeXt-B con preentrenamiento CLIP
 }
 
 foreach ($run in $Runs) {

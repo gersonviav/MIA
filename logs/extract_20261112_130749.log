@@ -1,0 +1,89 @@
+2026-11-12 13:07:49,466 | INFO    | vad.extract | Log de ejecución: logs\extract_20261112_130749.log
+2026-11-12 13:08:02,133 | INFO    | vad.extract | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "c60ec3b", "config_file": "configs\\hr320_cnnclip_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-11-12 13:08:17,467 | INFO    | vad.extract | ======================================================================
+2026-11-12 13:08:17,484 | INFO    | vad.extract | EXTRACCIÓN DE FEATURES — apariencia: convnext_base.clip_laion2b_augreg | movimiento: convnext_tiny sobre |Δframe| | cuda
+2026-11-12 13:08:17,490 | INFO    | vad.extract | ======================================================================
+2026-11-12 13:08:17,521 | INFO    | vad.extract | Videos: 691 (pendientes 691, ya extraídos 0) | frames pendientes: 494,835 | destino: data\processed\features\convnextb_clip_t_diff_320
+2026-11-12 13:08:17,543 | INFO    | vad.extract | batch_frames=128 | chunk_frames=256 | read_workers=8
+2026-11-12 13:08:20,200 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_base.clip_laion2b_augreg)
+2026-11-12 13:08:20,425 | INFO    | httpx2 | HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-11-12 13:08:20,547 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_base.clip_laion2b_augreg/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-11-12 13:08:20,547 | WARNING | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-11-12 13:08:20,975 | INFO    | httpx2 | HTTP Request: GET https://huggingface.co/api/models/timm/convnext_base.clip_laion2b_augreg/xet-read-token/4f9b3d13927464c8d2e8e2d99940569f8d09bada "HTTP/1.1 200 OK"
+2026-11-12 13:09:29,312 | INFO    | timm.models._hub | [timm/convnext_base.clip_laion2b_augreg] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-11-12 13:09:31,063 | INFO    | timm.models._builder | Loading pretrained weights from Hugging Face hub (timm/convnext_tiny.in12k_ft_in1k)
+2026-11-12 13:09:31,340 | INFO    | httpx2 | HTTP Request: HEAD https://huggingface.co/timm/convnext_tiny.in12k_ft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-11-12 13:09:31,372 | INFO    | timm.models._hub | [timm/convnext_tiny.in12k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-11-12 13:13:34,078 | INFO    | vad.extract |   10/691 videos | 19 frames/s | GPU esperando al disco 0% | 4.0 min | faltan ~422 min
+2026-11-12 13:14:43,003 | INFO    | vad.extract |   20/691 videos | 33 frames/s | GPU esperando al disco 0% | 5.2 min | faltan ~247 min
+2026-11-12 13:16:44,629 | INFO    | vad.extract |   30/691 videos | 62 frames/s | GPU esperando al disco 0% | 7.2 min | faltan ~125 min
+2026-11-12 13:18:30,224 | INFO    | vad.extract |   40/691 videos | 60 frames/s | GPU esperando al disco 0% | 9.0 min | faltan ~129 min
+2026-11-12 13:20:05,249 | INFO    | vad.extract |   50/691 videos | 58 frames/s | GPU esperando al disco 0% | 10.5 min | faltan ~131 min
+2026-11-12 13:24:11,063 | INFO    | vad.extract |   60/691 videos | 115 frames/s | GPU esperando al disco 7% | 14.6 min | faltan ~57 min
+2026-11-12 13:26:06,006 | INFO    | vad.extract |   70/691 videos | 105 frames/s | GPU esperando al disco 6% | 16.6 min | faltan ~62 min
+2026-11-12 13:27:59,186 | INFO    | vad.extract |   80/691 videos | 106 frames/s | GPU esperando al disco 6% | 18.4 min | faltan ~59 min
+2026-11-12 13:29:01,436 | INFO    | vad.extract |   90/691 videos | 110 frames/s | GPU esperando al disco 6% | 19.5 min | faltan ~56 min
+2026-11-12 13:30:35,879 | INFO    | vad.extract |   100/691 videos | 116 frames/s | GPU esperando al disco 6% | 21.1 min | faltan ~50 min
+2026-11-12 13:33:00,444 | INFO    | vad.extract |   110/691 videos | 122 frames/s | GPU esperando al disco 6% | 23.5 min | faltan ~44 min
+2026-11-12 13:37:19,217 | INFO    | vad.extract |   120/691 videos | 107 frames/s | GPU esperando al disco 5% | 27.8 min | faltan ~50 min
+2026-11-12 13:40:10,891 | INFO    | vad.extract |   130/691 videos | 122 frames/s | GPU esperando al disco 5% | 30.6 min | faltan ~37 min
+2026-11-12 13:41:57,752 | INFO    | vad.extract |   140/691 videos | 117 frames/s | GPU esperando al disco 5% | 32.4 min | faltan ~38 min
+2026-11-12 13:44:48,706 | INFO    | vad.extract |   150/691 videos | 109 frames/s | GPU esperando al disco 5% | 35.3 min | faltan ~41 min
+2026-11-12 13:48:18,666 | INFO    | vad.extract |   160/691 videos | 100 frames/s | GPU esperando al disco 4% | 38.8 min | faltan ~43 min
+2026-11-12 13:48:49,480 | INFO    | vad.extract |   170/691 videos | 101 frames/s | GPU esperando al disco 4% | 39.3 min | faltan ~42 min
+2026-11-12 13:51:32,586 | INFO    | vad.extract |   180/691 videos | 95 frames/s | GPU esperando al disco 4% | 42.0 min | faltan ~45 min
+2026-11-12 13:51:52,895 | INFO    | vad.extract |   190/691 videos | 96 frames/s | GPU esperando al disco 4% | 42.3 min | faltan ~44 min
+2026-11-12 13:52:48,647 | INFO    | vad.extract |   200/691 videos | 96 frames/s | GPU esperando al disco 4% | 43.3 min | faltan ~43 min
+2026-11-12 13:57:48,389 | INFO    | vad.extract |   210/691 videos | 87 frames/s | GPU esperando al disco 4% | 48.3 min | faltan ~47 min
+2026-11-12 14:01:39,922 | INFO    | vad.extract |   220/691 videos | 81 frames/s | GPU esperando al disco 3% | 52.1 min | faltan ~50 min
+2026-11-12 14:04:49,223 | INFO    | vad.extract |   230/691 videos | 77 frames/s | GPU esperando al disco 3% | 55.3 min | faltan ~52 min
+2026-11-12 14:07:05,911 | INFO    | vad.extract |   240/691 videos | 75 frames/s | GPU esperando al disco 3% | 57.6 min | faltan ~53 min
+2026-11-12 14:10:24,429 | INFO    | vad.extract |   250/691 videos | 72 frames/s | GPU esperando al disco 3% | 60.9 min | faltan ~54 min
+2026-11-12 14:10:38,918 | INFO    | vad.extract |   260/691 videos | 73 frames/s | GPU esperando al disco 3% | 61.1 min | faltan ~52 min
+2026-11-12 14:16:14,463 | INFO    | vad.extract |   270/691 videos | 69 frames/s | GPU esperando al disco 3% | 66.7 min | faltan ~53 min
+2026-11-12 14:16:27,986 | INFO    | vad.extract |   280/691 videos | 69 frames/s | GPU esperando al disco 3% | 66.9 min | faltan ~52 min
+2026-11-12 14:18:13,818 | INFO    | vad.extract |   290/691 videos | 69 frames/s | GPU esperando al disco 3% | 68.7 min | faltan ~52 min
+2026-11-12 14:23:05,276 | INFO    | vad.extract |   300/691 videos | 65 frames/s | GPU esperando al disco 3% | 73.5 min | faltan ~52 min
+2026-11-12 14:24:37,488 | INFO    | vad.extract |   310/691 videos | 65 frames/s | GPU esperando al disco 3% | 75.1 min | faltan ~52 min
+2026-11-12 14:25:03,637 | INFO    | vad.extract |   320/691 videos | 65 frames/s | GPU esperando al disco 3% | 75.5 min | faltan ~50 min
+2026-11-12 14:25:38,527 | INFO    | vad.extract |   330/691 videos | 66 frames/s | GPU esperando al disco 3% | 76.1 min | faltan ~49 min
+2026-11-12 14:25:55,887 | INFO    | vad.extract |   340/691 videos | 66 frames/s | GPU esperando al disco 3% | 76.4 min | faltan ~48 min
+2026-11-12 14:27:34,301 | INFO    | vad.extract |   350/691 videos | 66 frames/s | GPU esperando al disco 3% | 78.0 min | faltan ~47 min
+2026-11-12 14:28:28,695 | INFO    | vad.extract |   360/691 videos | 66 frames/s | GPU esperando al disco 3% | 78.9 min | faltan ~46 min
+2026-11-12 14:28:36,053 | INFO    | vad.extract |   370/691 videos | 67 frames/s | GPU esperando al disco 3% | 79.1 min | faltan ~44 min
+2026-11-12 14:28:44,722 | INFO    | vad.extract |   380/691 videos | 68 frames/s | GPU esperando al disco 3% | 79.2 min | faltan ~42 min
+2026-11-12 14:29:37,300 | INFO    | vad.extract |   390/691 videos | 68 frames/s | GPU esperando al disco 3% | 80.1 min | faltan ~41 min
+2026-11-12 14:30:44,922 | INFO    | vad.extract |   400/691 videos | 69 frames/s | GPU esperando al disco 3% | 81.2 min | faltan ~39 min
+2026-11-12 14:32:22,765 | INFO    | vad.extract |   410/691 videos | 73 frames/s | GPU esperando al disco 3% | 82.8 min | faltan ~29 min
+2026-11-12 14:33:18,556 | INFO    | vad.extract |   420/691 videos | 75 frames/s | GPU esperando al disco 3% | 83.8 min | faltan ~27 min
+2026-11-12 14:33:34,322 | INFO    | vad.extract |   430/691 videos | 76 frames/s | GPU esperando al disco 3% | 84.0 min | faltan ~24 min
+2026-11-12 14:33:39,596 | INFO    | vad.extract |   440/691 videos | 77 frames/s | GPU esperando al disco 3% | 84.1 min | faltan ~23 min
+2026-11-12 14:33:45,027 | INFO    | vad.extract |   450/691 videos | 77 frames/s | GPU esperando al disco 3% | 84.2 min | faltan ~22 min
+2026-11-12 14:34:04,640 | INFO    | vad.extract |   460/691 videos | 78 frames/s | GPU esperando al disco 3% | 84.5 min | faltan ~21 min
+2026-11-12 14:34:24,499 | INFO    | vad.extract |   470/691 videos | 79 frames/s | GPU esperando al disco 4% | 84.9 min | faltan ~20 min
+2026-11-12 14:36:33,432 | INFO    | vad.extract |   480/691 videos | 77 frames/s | GPU esperando al disco 3% | 87.0 min | faltan ~20 min
+2026-11-12 14:37:02,981 | INFO    | vad.extract |   490/691 videos | 78 frames/s | GPU esperando al disco 4% | 87.5 min | faltan ~19 min
+2026-11-12 14:39:34,330 | INFO    | vad.extract |   500/691 videos | 76 frames/s | GPU esperando al disco 3% | 90.0 min | faltan ~19 min
+2026-11-12 14:39:45,165 | INFO    | vad.extract |   510/691 videos | 76 frames/s | GPU esperando al disco 3% | 90.2 min | faltan ~18 min
+2026-11-12 14:40:25,469 | INFO    | vad.extract |   520/691 videos | 76 frames/s | GPU esperando al disco 3% | 90.9 min | faltan ~18 min
+2026-11-12 14:40:37,208 | INFO    | vad.extract |   530/691 videos | 76 frames/s | GPU esperando al disco 4% | 91.1 min | faltan ~17 min
+2026-11-12 14:41:58,815 | INFO    | vad.extract |   540/691 videos | 76 frames/s | GPU esperando al disco 3% | 92.4 min | faltan ~16 min
+2026-11-12 14:42:26,339 | INFO    | vad.extract |   550/691 videos | 76 frames/s | GPU esperando al disco 4% | 92.9 min | faltan ~15 min
+2026-11-12 14:43:37,853 | INFO    | vad.extract |   560/691 videos | 76 frames/s | GPU esperando al disco 4% | 94.1 min | faltan ~15 min
+2026-11-12 14:44:44,141 | INFO    | vad.extract |   570/691 videos | 75 frames/s | GPU esperando al disco 4% | 95.2 min | faltan ~14 min
+2026-11-12 14:45:01,885 | INFO    | vad.extract |   580/691 videos | 76 frames/s | GPU esperando al disco 4% | 95.5 min | faltan ~14 min
+2026-11-12 14:45:32,059 | INFO    | vad.extract |   590/691 videos | 76 frames/s | GPU esperando al disco 4% | 96.0 min | faltan ~13 min
+2026-11-12 14:45:48,803 | INFO    | vad.extract |   600/691 videos | 76 frames/s | GPU esperando al disco 4% | 96.3 min | faltan ~12 min
+2026-11-12 14:45:55,613 | INFO    | vad.extract |   610/691 videos | 76 frames/s | GPU esperando al disco 4% | 96.4 min | faltan ~12 min
+2026-11-12 14:46:44,620 | INFO    | vad.extract |   620/691 videos | 78 frames/s | GPU esperando al disco 4% | 97.2 min | faltan ~9 min
+2026-11-12 14:47:31,143 | INFO    | vad.extract |   630/691 videos | 79 frames/s | GPU esperando al disco 4% | 98.0 min | faltan ~6 min
+2026-11-12 14:47:51,179 | INFO    | vad.extract |   640/691 videos | 80 frames/s | GPU esperando al disco 4% | 98.3 min | faltan ~5 min
+2026-11-12 14:48:25,167 | INFO    | vad.extract |   650/691 videos | 81 frames/s | GPU esperando al disco 4% | 98.9 min | faltan ~4 min
+2026-11-12 14:49:14,055 | INFO    | vad.extract |   660/691 videos | 81 frames/s | GPU esperando al disco 4% | 99.7 min | faltan ~2 min
+2026-11-12 14:49:37,366 | INFO    | vad.extract |   670/691 videos | 81 frames/s | GPU esperando al disco 4% | 100.1 min | faltan ~2 min
+2026-11-12 14:49:54,041 | INFO    | vad.extract |   680/691 videos | 81 frames/s | GPU esperando al disco 4% | 100.4 min | faltan ~1 min
+2026-11-12 14:50:14,741 | INFO    | vad.extract |   690/691 videos | 82 frames/s | GPU esperando al disco 4% | 100.7 min | faltan ~0 min
+2026-11-12 14:50:15,879 | INFO    | vad.extract |   691/691 videos | 82 frames/s | GPU esperando al disco 5% | 100.7 min | faltan ~0 min
+2026-11-12 14:50:15,885 | INFO    | vad.extract | Extraídos: 691 | dims rgb=1024 mot=768
+2026-11-12 14:50:15,888 | INFO    | vad.extract | Siguiente paso: vad train
+2026-11-12 14:50:15,926 | INFO    | vad.extract | 'extract' completado en 6133.8 s

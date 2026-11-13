@@ -1,0 +1,48 @@
+2026-11-12 14:57:56,968 | INFO    | vad.train | Log de ejecución: logs\train_20261112_145756.log
+2026-11-12 14:57:58,354 | INFO    | vad.train | Contexto: {"vad_version": "0.6.0", "python": "3.12.10", "platform": "Windows-11-10.0.26300-SP0", "git_commit": "c60ec3b", "config_file": "configs\\hr320_cnnclip_v2.yaml", "torch": "2.11.0+cu128", "cuda_available": true, "gpu": "NVIDIA GeForce RTX 5070 Ti"}
+2026-11-12 14:57:58,354 | INFO    | vad.train | Overrides: {'train.seed': 2, 'paths.checkpoints_dir': 'artifacts/seeds/cnnclip_v2/s2'}
+2026-11-12 14:57:59,252 | INFO    | vad.train | ======================================================================
+2026-11-12 14:57:59,252 | INFO    | vad.train | ENTRENAMIENTO MIL | cuda | snippet=3 frames | 32 segmentos (Transformer) / 128 (scorer) | top-k 0.1·T | seed 2
+2026-11-12 14:57:59,252 | INFO    | vad.train | λ: {'lambda_ent': 0.3, 'lambda_seg': 0.5, 'lambda_smooth': 0.1, 'lambda_rank': 1.0, 'rank_margin': 1.0, 'rank_topk': 3, 'rank_topk_ratio': 0.1, 'lambda_normal': 1.0, 'lambda_topk': 1.0, 'lambda_sparsity': 0.1, 'lambda_score_smooth': 0.1}
+2026-11-12 14:57:59,252 | INFO    | vad.train | ======================================================================
+2026-11-12 14:57:59,253 | INFO    | vad.train | Cargando features...
+2026-11-12 14:58:24,798 | INFO    | vad.dataset |   train: 390 videos | dist {0: 160, 1: 110, 2: 120} | 32 segmentos (Transformer) / 128 (scorer) | snippets/video mediana 87
+2026-11-12 14:58:31,869 | INFO    | vad.dataset |   val: 98 videos | dist {0: 40, 1: 28, 2: 30} | 32 segmentos (Transformer) / 128 (scorer) | snippets/video mediana 85
+2026-11-12 14:58:31,886 | INFO    | vad.train | Pesos CE por clase: {'Normal': 0.8119999766349792, 'Aggression': 1.1820000410079956, 'Theft': 1.0829999446868896}
+2026-11-12 14:58:32,688 | INFO    | vad.train | Parámetros entrenables: 5,536,261
+2026-11-12 14:58:40,245 | INFO    | vad.train | Ép 01 | train 3.2842 {'ce': 1.139, 'ent': 0.287, 'seg': 0.549, 'smooth': 0.002, 'rank': 0.619, 'normal': 0.321, 'topk': 0.312, 'sparsity': 0.055, 'score_smooth': 0.001}
+2026-11-12 14:58:40,246 | INFO    | vad.train |        val F1 0.6536 acc 0.673 | preds [42, 24, 32] | score: sep(max) 0.690 | medio anómalos 0.439 normales 0.021
+2026-11-12 14:58:40,327 | INFO    | vad.train |         → mejor checkpoint (val F1 0.6536)
+2026-11-12 14:58:41,262 | INFO    | vad.train | Ép 02 | train 1.6984 {'ce': 0.521, 'ent': 0.245, 'seg': 0.253, 'smooth': 0.009, 'rank': 0.273, 'normal': 0.097, 'topk': 0.235, 'sparsity': 0.064, 'score_smooth': 0.001}
+2026-11-12 14:58:41,263 | INFO    | vad.train |        val F1 0.6906 acc 0.714 | preds [31, 14, 53] | score: sep(max) 0.602 | medio anómalos 0.717 normales 0.086
+2026-11-12 14:58:41,300 | INFO    | vad.train |         → mejor checkpoint (val F1 0.6906)
+2026-11-12 14:58:42,204 | INFO    | vad.train | Ép 03 | train 1.1332 {'ce': 0.351, 'ent': 0.162, 'seg': 0.162, 'smooth': 0.035, 'rank': 0.18, 'normal': 0.051, 'topk': 0.124, 'sparsity': 0.067, 'score_smooth': 0.001}
+2026-11-12 14:58:42,204 | INFO    | vad.train |        val F1 0.5945 acc 0.643 | preds [59, 19, 20] | score: sep(max) 0.719 | medio anómalos 0.448 normales 0.025
+2026-11-12 14:59:13,731 | INFO    | vad.train | Ép 04 | train 1.1846 {'ce': 0.4, 'ent': 0.106, 'seg': 0.184, 'smooth': 0.06, 'rank': 0.194, 'normal': 0.063, 'topk': 0.112, 'sparsity': 0.066, 'score_smooth': 0.001}
+2026-11-12 14:59:13,746 | INFO    | vad.train |        val F1 0.6990 acc 0.724 | preds [47, 27, 24] | score: sep(max) 0.737 | medio anómalos 0.486 normales 0.030
+2026-11-12 14:59:13,990 | INFO    | vad.train |         → mejor checkpoint (val F1 0.6990)
+2026-11-12 14:59:56,655 | INFO    | vad.train | Ép 05 | train 0.7958 {'ce': 0.23, 'ent': 0.088, 'seg': 0.108, 'smooth': 0.061, 'rank': 0.123, 'normal': 0.031, 'topk': 0.088, 'sparsity': 0.066, 'score_smooth': 0.001}
+2026-11-12 14:59:56,681 | INFO    | vad.train |        val F1 0.6271 acc 0.663 | preds [45, 17, 36] | score: sep(max) 0.706 | medio anómalos 0.554 normales 0.041
+2026-11-12 15:00:40,051 | INFO    | vad.train | Ép 06 | train 0.7044 {'ce': 0.188, 'ent': 0.073, 'seg': 0.085, 'smooth': 0.065, 'rank': 0.109, 'normal': 0.028, 'topk': 0.09, 'sparsity': 0.066, 'score_smooth': 0.001}
+2026-11-12 15:00:40,068 | INFO    | vad.train |        val F1 0.7603 acc 0.765 | preds [33, 33, 32] | score: sep(max) 0.552 | medio anómalos 0.796 normales 0.128
+2026-11-12 15:00:40,292 | INFO    | vad.train |         → mejor checkpoint (val F1 0.7603)
+2026-11-12 15:01:22,625 | INFO    | vad.train | Ép 07 | train 0.7771 {'ce': 0.25, 'ent': 0.068, 'seg': 0.112, 'smooth': 0.066, 'rank': 0.109, 'normal': 0.027, 'topk': 0.078, 'sparsity': 0.067, 'score_smooth': 0.001}
+2026-11-12 15:01:22,641 | INFO    | vad.train |        val F1 0.6555 acc 0.663 | preds [33, 28, 37] | score: sep(max) 0.666 | medio anómalos 0.691 normales 0.071
+2026-11-12 15:02:05,584 | INFO    | vad.train | Ép 08 | train 0.5266 {'ce': 0.124, 'ent': 0.056, 'seg': 0.057, 'smooth': 0.071, 'rank': 0.079, 'normal': 0.016, 'topk': 0.053, 'sparsity': 0.068, 'score_smooth': 0.001}
+2026-11-12 15:02:05,601 | INFO    | vad.train |        val F1 0.6766 acc 0.694 | preds [43, 17, 38] | score: sep(max) 0.725 | medio anómalos 0.471 normales 0.033
+2026-11-12 15:02:26,882 | INFO    | vad.train | Ép 09 | train 0.3451 {'ce': 0.046, 'ent': 0.046, 'seg': 0.022, 'smooth': 0.075, 'rank': 0.049, 'normal': 0.008, 'topk': 0.034, 'sparsity': 0.064, 'score_smooth': 0.001}
+2026-11-12 15:02:26,883 | INFO    | vad.train |        val F1 0.6947 acc 0.714 | preds [40, 33, 25] | score: sep(max) 0.666 | medio anómalos 0.661 normales 0.074
+2026-11-12 15:02:30,733 | INFO    | vad.train | Ép 10 | train 0.2909 {'ce': 0.042, 'ent': 0.042, 'seg': 0.02, 'smooth': 0.075, 'rank': 0.027, 'normal': 0.005, 'topk': 0.014, 'sparsity': 0.065, 'score_smooth': 0.001}
+2026-11-12 15:02:30,734 | INFO    | vad.train |        val F1 0.6685 acc 0.694 | preds [43, 18, 37] | score: sep(max) 0.757 | medio anómalos 0.517 normales 0.035
+2026-11-12 15:02:34,442 | INFO    | vad.train | Ép 11 | train 0.3282 {'ce': 0.076, 'ent': 0.038, 'seg': 0.034, 'smooth': 0.075, 'rank': 0.021, 'normal': 0.002, 'topk': 0.016, 'sparsity': 0.065, 'score_smooth': 0.002}
+2026-11-12 15:02:34,443 | INFO    | vad.train |        val F1 0.6997 acc 0.724 | preds [47, 26, 25] | score: sep(max) 0.709 | medio anómalos 0.474 normales 0.031
+2026-11-12 15:02:35,310 | INFO    | vad.train | Ép 12 | train 0.3082 {'ce': 0.038, 'ent': 0.034, 'seg': 0.016, 'smooth': 0.078, 'rank': 0.033, 'normal': 0.001, 'topk': 0.047, 'sparsity': 0.059, 'score_smooth': 0.002}
+2026-11-12 15:02:35,310 | INFO    | vad.train |        val F1 0.6739 acc 0.704 | preds [44, 22, 32] | score: sep(max) 0.738 | medio anómalos 0.510 normales 0.038
+2026-11-12 15:02:36,173 | INFO    | vad.train | Ép 13 | train 0.2046 {'ce': 0.019, 'ent': 0.026, 'seg': 0.008, 'smooth': 0.082, 'rank': 0.005, 'normal': 0.0, 'topk': 0.004, 'sparsity': 0.058, 'score_smooth': 0.002}
+2026-11-12 15:02:36,174 | INFO    | vad.train |        val F1 0.6858 acc 0.704 | preds [43, 29, 26] | score: sep(max) 0.684 | medio anómalos 0.492 normales 0.036
+2026-11-12 15:02:37,073 | INFO    | vad.train | Ép 14 | train 0.2396 {'ce': 0.029, 'ent': 0.029, 'seg': 0.014, 'smooth': 0.079, 'rank': 0.015, 'normal': 0.002, 'topk': 0.011, 'sparsity': 0.059, 'score_smooth': 0.002}
+2026-11-12 15:02:37,073 | INFO    | vad.train |        val F1 0.6759 acc 0.694 | preds [37, 35, 26] | score: sep(max) 0.603 | medio anómalos 0.624 normales 0.073
+2026-11-12 15:02:37,073 | INFO    | vad.train | [EARLY STOPPING] mejor época 6 (F1 0.7603)
+2026-11-12 15:02:37,075 | INFO    | vad.train | Mejor val macro-F1 0.7603 (época 6) | artifacts\seeds\cnnclip_v2\s2\best_model.pth
+2026-11-12 15:02:37,075 | INFO    | vad.train | Siguiente paso: vad evaluate
+2026-11-12 15:02:37,099 | INFO    | vad.train | 'train' completado en 278.7 s

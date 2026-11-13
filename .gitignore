@@ -40,3 +40,7 @@ anomalia/
 Thumbs.db
 .vscode/
 .idea/
+
+artifacts/weights/
+artifacts/runs_baselines/
+data/processed/i3d_*/
